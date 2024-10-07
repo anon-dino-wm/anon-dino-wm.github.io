@@ -1,9 +1,298 @@
+<!DOCTYPE html>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js">
+</script>
 <html>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning">
+  <meta property="og:description" content="DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning">
+  <meta name="twitter:description"
+    content="DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning">
+  <meta name="twitter:image" content="./mfiles/figs/intro.png" />
+  <link rel="shortcut icon" href="mfiles/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/simple-grid.css">
+  <title>DINO-WM: World Models on Pre-trained Visual Features enable Zero-shot Planning</title>
+</head>
+
 <body>
-  <h1>anon-dino-wm</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row mt-5" >
+        <div class="col-12 center mb-3">
+          <h1 style="font-size: 2.9em;">
+            <b>DINO-WM</b>: World Models on Pre-trained 
+          </h1>  
+          <h1 style="font-size: 2.8em;">
+            Visual Features enable Zero-shot Planning
+          </h1>        
+        </div>
+        
+        <div class="col-3 hidden-sm"></div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12 center img">
+          <img class="center" src="./mfiles/figs/intro.png" style="width:100%; height:auto; overflow:visible;"></img>
+        </div>
+      </div>
+
+      <!--Abstract-->
+      <div class="row mt-3">
+        <div class="col-12">
+          <h2 class="center m-bottom">Abstract</h2>
+          <p>
+            The ability to predict future outcomes given control actions is fundamental for physical reasoning. However, 
+            such predictive models, often called world models, have proven challenging to learn and are typically developed 
+            for task-specific solutions with online policy learning. We argue that the true potential of world models lies in their ability to 
+            reason and plan across diverse problems using only passive data. Concretely, we require world models to have the following three properties: 
+            1) be trainable on offline, pre-collected trajectories, 2) support test-time behavior optimization, and 3) facilitate task-agnostic reasoning.
+          </p>
+          <p> 
+            To realize this, we present DINO World Model (<b style="color: #e88404">DINO-WM</b>), a new method to model visual dynamics without reconstructing the visual world. 
+            DINO-WM leverages spatial patch features pre-trained with DINOv2, enabling it to learn from offline behavioral trajectories by predicting future patch features. 
+            This design allows DINO-WM to achieve observational goals through action sequence optimization, facilitating task-agnostic behavior planning 
+            by treating desired goal patch features as prediction targets. We evaluate DINO-WM across various domains, including maze navigation, tabletop pushing, 
+            and particle manipulation. Our experiments demonstrate that DINO-WM can generate zero-shot behavioral solutions at test time without 
+            relying on expert demonstrations, reward modeling, or pre-learned inverse models. Notably, DINO-WM exhibits strong generalization capabilities compared to 
+            prior state-of-the-art work, adapting to diverse task families such as arbitrarily configured mazes, push manipulation with varied object shapes, and multi-particle scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="center mb-3">Method</h2>
+          <p>
+            In this work, we aim to learn task-agnostic world models from pre-collected offline datasets, and use these world models to perform visual reasoning and control at test time. 
+            At test time, our system starts from an arbitrary environment state and is provided with a goal observation in the form of an RGB image, and is asked to perform a sequence of actions such that the goal state can be achieved. 
+            This approach differs from world models used in online reinforcement learning (RL) where the objective is to optimize rewards for a fixed set of tasks at hand, or from text-conditioned world models, where goals are specified through text prompts.
+          </p>
+          
+        </div>
+      </div>
+      <div class="col-12 center img">
+        <img class="center" src="./mfiles/figs/model_arch.png" style="width:100%"></img>
+      </div>
+    </div>
+
+    <!--Videos-->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="center mb-3">Planning Results</h2>
+          <p>
+            Planning results of DINO-WM on PushT and PointMaze environments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="body-content" style="padding-bottom: 150px;">
+      <div class="container">
+        <div class="grid-display">
+          <h4> PushT: horizon = 5 </h4>
+          <div id="indicator0" class="carousel slide mb-3" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#indicator0" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#indicator0" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#indicator0" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#indicator0" data-bs-slide-to="3" aria-label="Slide 4"></button>         
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H5_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>              
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H5_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H5_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H5_3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#indicator0" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#indicator0" data-bs-slide="next">
+              <span class="carousel-control-next-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+
+          <h4> PushT: horizon = 10 </h4>
+          <div id="indicator1" class="carousel slide mb-3" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#indicator1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#indicator1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#indicator1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#indicator1" data-bs-slide-to="3" aria-label="Slide 4"></button>         
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H10_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>              
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H10_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Failure</h4>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H10_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Failure</h4>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/pusht/pusht_H10_3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Failure</h4>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#indicator1" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#indicator1" data-bs-slide="next">
+              <span class="carousel-control-next-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+
+          <h4> PointMaze: horizon = 5 </h4>
+          <div id="indicator2" class="carousel slide mb-3" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#indicator2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#indicator2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#indicator2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#indicator2" data-bs-slide-to="3" aria-label="Slide 4"></button>         
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/point_maze/PointMaze_H5_3.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>              
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/point_maze/PointMaze_H5_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/point_maze/PointMaze_H5_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Success</h4>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 600px;">
+                  <video class="img" style="height: 600px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/point_maze/PointMaze_H5_1.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div>
+                  <h4 class="carousel-caption with-backdrop">Failure</h4>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#indicator2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#indicator2" data-bs-slide="next">
+              <span class="carousel-control-next-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Image-->
+
+  </div>
+  <footer>
+  </footer>
 </body>
 
 </html>
+
