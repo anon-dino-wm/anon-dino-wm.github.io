@@ -311,7 +311,15 @@ p {
 .carousel-indicators {
   position: absolute;
   top: 10px;
-  bottom: auto;
+  
+}
+
+.with-whitebackdrop {
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .with-backdrop {
