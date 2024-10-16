@@ -309,9 +309,12 @@ p {
 }
 
 .carousel-indicators {
-  position: absolute;
-  top: 10px;
-  
+  bottom: 40px; 
+}
+
+.carousel-indicators button {
+  background-color: gray !important;
+  opacity: 1; 
 }
 
 .with-whitebackdrop {
