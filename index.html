@@ -224,7 +224,7 @@
           </div>
         </div>
         
-        <h4>Granular: horizon = 25</h2>
+        <h4>Granular:</h2>
         <div class="grid-display" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 20px;">
           <div class="video-container" style="flex: 1 1 22%; margin: 0;">
             <video class="img" style="width: 100%; height: auto;" muted autoplay loop controls>
@@ -518,7 +518,7 @@
           </div>
           
           <div class="container-fluid" style="max-width: 100%; padding: 0;">
-            <h4>PointMaze: horizon = 25</h4>
+            <h4>PointMaze:</h4>
             <div class="row d-flex justify-content-center" style="display: flex; flex-wrap: nowrap;">
               <!-- Success Videos Column -->
               <div class="carousel-column" style="flex: 0 0 45%; padding: 10px;">
@@ -614,92 +614,57 @@
           </div>
 
 
-
-          <!-- Rope: horizon = 25 -->
-          <div class="container-fluid" style="max-width: 100%; padding: 0;">
-            <h4>Rope: horizon = 25</h4>
-            <div class="row d-flex justify-content-center" style="display: flex; flex-wrap: nowrap;">
-              <!-- First Column -->
-              <div class="carousel-column" style="flex: 0 0 45%; padding: 10px;">
-                <div id="indicator7_1" class="carousel slide mb-3" data-bs-ride="false">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#indicator7_1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#indicator7_1" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div style="display: flex; justify-content: center; max-height: 250px; max-width: 100%; overflow: hidden;">
-                        <video class="img-fluid" style="max-height: 250px; margin: auto;" muted autoplay loop controls>
-                          <source src="./mfiles/env/rope/rope_concat_0.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <div style="text-align: center;">
-                        <h4 class="caption with-whitebackdrop">Success1</h4>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div style="display: flex; justify-content: center; max-height: 250px; max-width: 100%; overflow: hidden;">
-                        <video class="img-fluid" style="max-height: 250px; margin: auto;" muted autoplay loop controls>
-                          <source src="./mfiles/env/rope/rope_concat_1.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <div style="text-align: center;">
-                        <h4 class="caption with-whitebackdrop">Success2</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#indicator7_1" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon with-backdrop" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#indicator7_1" data-bs-slide="next">
-                    <span class="carousel-control-next-icon with-backdrop" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+          <h4> Rope:</h4>
+          <div id="indicator7" class="carousel slide mb-3" data-bs-ride="false">
+            <div class="carousel-indicators" style="bottom: 0px;">
+              <button type="button" data-bs-target="#indicator7" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#indicator7" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#indicator7" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#indicator7" data-bs-slide-to="3" aria-label="Slide 4"></button>         
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div style="display: flex; justify-content: center; height: 250px;">
+                  <video class="img" style="height: 250px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/rope/rope_concat_0.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>              
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 250px;">
+                  <video class="img" style="height: 250px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/rope/rope_concat_1.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
-          
-              <!-- Second Column -->
-              <div class="carousel-column" style="flex: 0 0 45%; padding: 10px;">
-                <div id="indicator7_2" class="carousel slide mb-3" data-bs-ride="false">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#indicator7_2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#indicator7_2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div style="display: flex; justify-content: center; max-height: 250px; max-width: 100%; overflow: hidden;">
-                        <video class="img-fluid" style="max-height: 250px; margin: auto;" muted autoplay loop controls>
-                          <source src="./mfiles/env/rope/rope_concat_5.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <div style="text-align: center;">
-                        <h4 class="caption with-whitebackdrop">Failure1</h4>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div style="display: flex; justify-content: center; max-height: 250px; max-width: 100%; overflow: hidden;">
-                        <video class="img-fluid" style="max-height: 250px; margin: auto;" muted autoplay loop controls>
-                          <source src="./mfiles/env/rope/rope_concat_3.mp4" type="video/mp4">
-                        </video>
-                      </div>
-                      <div style="text-align: center;">
-                        <h4 class="caption with-whitebackdrop">Failure2</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#indicator7_2" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon with-backdrop" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#indicator7_2" data-bs-slide="next">
-                    <span class="carousel-control-next-icon with-backdrop" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 250px;">
+                  <video class="img" style="height: 250px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/rope/rope_concat_2.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div style="display: flex; justify-content: center; height: 250px;">
+                  <video class="img" style="height: 250px; margin: auto;" muted autoplay loop controls>
+                    <source src="./mfiles/env/rope/rope_concat_3.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#indicator7" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#indicator7" data-bs-slide="next">
+              <span class="carousel-control-next-icon with-backdrop" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
+        </div>
+      </div>
+    </div>
+        
 
         </div>
       </div>
