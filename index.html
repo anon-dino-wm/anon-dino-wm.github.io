@@ -358,7 +358,8 @@
       <div class="row">
         <div class="col-12">
           <h2 class="center mb-3">Unconditioned DINO-WM on CLEVRER</h2>
-          <p>*For all the videos in this section, the top row shows ground truth rollouts in the environment, while the bottom row presents world model-imagined rollouts.</p>
+          <p>*For the videos in this section, the top row shows ground truth rollouts in the environment, while the bottom row presents world model-imagined rollouts.</p>
+          <p>1-frame rollouts are conditioned on the first frame only, while 3-frame rollouts are conditioned on the first three frames. This allows the model to better capture physical properties like velocity and trajectories. This added context improves prediction accuracy, whereas conditioning on a single frame leads to open-ended assumptions about object movements and predictions. Both are taken from the validation set.</p>
         </div>
       </div>
     </div>
